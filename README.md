@@ -4,11 +4,9 @@
 
 代码特别简单，R2是控制器，view是视图，逻辑也非常简单，后端就是请求生成预上传url和保存数据提交。
 
-2. Compress Videos Before Upload
-To compress videos, you can use ffmpeg.wasm:
-
 ## Solution Overview
 **Compress Images:** Use libraries like `browser-image-compression` or the canvas API for image compression.
+
 **Compress Videos:** Use libraries like `ffmpeg.wasm` for video compression directly in the browser.
 
 Implementation
@@ -24,13 +22,17 @@ To achieve this, you can use the browser's canvas API to convert images to WebP 
 
 ## Explanation:
 **Image Compression:** The browser-image-compression library reduces the image size before uploading.
+
 **Video Compression:** ffmpeg.wasm allows video compression directly in the browser. The example uses FFmpeg to encode videos with a lower bitrate.
 
 ## Benefits:
 **Faster Uploads:** Smaller file sizes lead to faster uploads.
+
 **Reduced Storage Costs:** Compressed files take up less space in Cloudflare R2.
+
 **Better User Experience:** Faster uploads and reduced data usage for users.
 
 Additional Considerations:
 **Browser Compatibility:** Ensure that the user's browser supports WebP and the necessary APIs (canvas, FileReader).
+
 **Quality Settings:** Adjust the canvas.toBlob quality parameter (0.8 in the example) as needed to balance image quality and file size.
